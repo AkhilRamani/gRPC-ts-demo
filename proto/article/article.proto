@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package articlePackage;
+
+message ArticleItem {
+    int32 id = 1;
+    string title = 2;
+    string description = 3;
+}
+
+message ArticleItems {
+    repeated ArticleItem items = 1;
+}
+
+message Void {}
+
+service Article {
+    rpc createArticle(ArticleItem) returns (ArticleItem);
+    rpc getArticles(Void) returns (ArticleItems);
+}
